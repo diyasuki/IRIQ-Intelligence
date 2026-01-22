@@ -500,15 +500,38 @@ st.markdown("---")
 
 st.markdown(
     """
-    <div style="text-align:center; font-size:13px; color:#dddddd;">
-        <b>Demo Version</b><br>
-        This application is for demonstration and evaluation purposes only.<br><br>
+    <div style="
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 18px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.06);
+        text-align: center;
+        font-size: 14px;
+        color: #e0e0e0;
+    ">
+        <div style="font-size:16px; font-weight:600; margin-bottom:6px;">
+            Demo Version
+        </div>
 
-        <b>Licensing & Commercial Use</b><br>
-        For licensing, customization, or enterprise deployment, contact:<br>
-        📧 <a href="mailto:Kranthi.c85@gmail.com" style="color:#7ec8ff;">
-            Kranthi.c85@gmail.com
-        </a>
+        <div style="margin-bottom:14px;">
+            This application is for demonstration and evaluation purposes only.
+        </div>
+
+        <div style="font-weight:600; margin-bottom:4px;">
+            Licensing & Commercial Use
+        </div>
+
+        <div style="margin-bottom:6px;">
+            For licensing, customization, or enterprise deployment, contact:
+        </div>
+
+        <div>
+            📧 <a href="mailto:Kranthi.c85@gmail.com"
+                 style="color:#7ec8ff; text-decoration:none; font-weight:500;">
+                Kranthi.c85@gmail.com
+            </a>
+        </div>
     </div>
     """,
     unsafe_allow_html=True
