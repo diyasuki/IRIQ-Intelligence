@@ -16,10 +16,10 @@ from vertexai.generative_models import GenerativeModel, Part, GenerationConfig
 import requests
 
 GITHUB_PROMPT_MAP = {
-    "Invoice": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/invoice.txt",
-    "Purchase Order": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/purchase_order.txt",
-    "Receipt": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/receipt.txt",
-    "Bank Statement": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/bank_statement.txt",
+    "Invoice": "https://github.com/diyasuki/IRIQ-Intelligence/blob/main/Invoice.txt",
+    "Purchase Order": "https://github.com/diyasuki/IRIQ-Intelligence/blob/main/PurchaseOrder.txt",
+    "Receipt": "https://github.com/diyasuki/IRIQ-Intelligence/blob/main/receipts.txt",
+    "Bank Statement": "https://github.com/diyasuki/IRIQ-Intelligence/blob/main/Bankstatement.txt",
 }
 # =========================================================
 # CONFIG
@@ -501,5 +501,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
