@@ -293,52 +293,52 @@ st.set_page_config(page_title="Async Gemini Bank Statement Extractor", layout="w
 st.markdown(
     """
     <style>
-        /* App background */
-        .stApp {
-            background-color: #2b124c;
-            color: white;
-        }
-
-        /* Sidebar background */
-        section[data-testid="stSidebar"] {
-            background-color: #1f0b38;
-        }
-
-        /* Text color */
-        h1, h2, h3, h4, h5, h6, p, label, span, div {
-            color: white !important;
-        }
-
-        /* Buttons */
+        /* ================================
+           BUTTON TEXT → BLACK
+        ================================= */
         .stButton > button {
-            background-color: #7ec8ff;
-            color: #000000;
-            border-radius: 8px;
-            border: none;
+            color: #000000 !important;
             font-weight: 600;
         }
 
         .stButton > button:hover {
-            background-color: #5bb6ff;
-            color: #000000;
+            color: #000000 !important;
         }
 
-        /* File uploader */
-        div[data-testid="stFileUploader"] {
-            background-color: #3a1b66;
-            border-radius: 8px;
-            padding: 10px;
+        /* ================================
+           SELECTBOX (DROPDOWN) TEXT → BLACK
+           Covers:
+           - Selected value
+           - Placeholder
+           - Dropdown options
+        ================================= */
+
+        /* Selected value */
+        div[data-testid="stSelectbox"] div[role="combobox"] {
+            color: #000000 !important;
         }
 
-        /* Selectbox */
-        div[data-testid="stSelectbox"] {
-            background-color: #3a1b66;
-            border-radius: 8px;
+        /* Placeholder text */
+        div[data-testid="stSelectbox"] span {
+            color: #000000 !important;
+        }
+
+        /* Dropdown menu items */
+        ul[role="listbox"] li {
+            color: #000000 !important;
+            background-color: #ffffff !important;
+        }
+
+        /* Selected item highlight */
+        ul[role="listbox"] li[aria-selected="true"] {
+            background-color: #dbeafe !important;
+            color: #000000 !important;
         }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 st.markdown(
     """
     <div style="text-align:center; padding: 10px 0;">
@@ -497,6 +497,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
