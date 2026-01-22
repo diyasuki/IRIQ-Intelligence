@@ -432,12 +432,7 @@ with left:
 
     status_box = st.empty()
     progress_bar = st.progress(0.0)
-with left:
-    pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
-    prompt_file = st.file_uploader("Upload Prompt (.txt)", type=["txt"])
-    run = st.button("🚀 Run Extraction", use_container_width=True)
-    status_box = st.empty()
-    progress_bar = st.progress(0.0)
+
 
 with right:
     json_out = st.empty()
@@ -525,6 +520,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
