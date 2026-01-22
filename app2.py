@@ -495,19 +495,17 @@ if st.session_state.extracted_json:
         "transactions.csv",
         mime="text/csv"
     )
-    st.markdown("---")
+
+st.markdown("---")
 
 st.markdown(
     """
     <div style="
         text-align:center;
-        font-size:14px;
+        font-size:13px;
         color:#dddddd;
-        padding-bottom:10px;
+        padding-bottom:12px;
     ">
-        <b style="color:#ffffff;">IRIQ Intelligence</b><br>
-        Intelligent Document Processing • OCR • AI Automation<br><br>
-
         <b>Demo Version</b><br>
         This application is for demonstration and evaluation purposes only.<br><br>
 
@@ -520,11 +518,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
-
-
-
 
 
 
