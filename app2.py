@@ -289,7 +289,7 @@ def transactions_to_csv(data: dict) -> str:
 # =========================================================
 # STREAMLIT UI
 # =========================================================
-st.set_page_config(page_title="Async Gemini Bank Statement Extractor", layout="wide")
+st.set_page_config(page_title="IRIQ Intelligent Extractor", layout="wide")
 st.markdown(
     """
     <style>
@@ -371,14 +371,44 @@ st.markdown(
     unsafe_allow_html=True
 )
 with st.sidebar:
-    service_account_file = st.file_uploader("Service Account JSON", type=["json"])
+    service_account_file = st.file_uploader(
+        "Service Account JSON",
+        type=["json"],
+        key="service_account_json"
+    )
+
     project_id = get_project_id_from_sa(service_account_file) if service_account_file else None
     if project_id:
-        st.text_input("Project ID", project_id, disabled=True)
+        st.text_input("Project ID", project_id, disabled=True, key="project_id_display")
 
-    location = st.selectbox("Vertex AI Location", VERTEX_LOCATIONS)
-
+    location = st.selectbox(
+        "Vertex AI Location",
+        VERTEX_LOCATIONS,
+        key="vertex_location"
+    )
 left, right = st.columns([1, 1.4])
+
+with left:
+    pdf_file = st.file_uploader(
+        "Upload PDF",
+        type=["pdf"],
+        key="upload_pdf"
+    )
+
+    prompt_file = st.file_uploader(
+        "Upload Prompt (.txt)",
+        type=["txt"],
+        key="upload_prompt"
+    )
+
+    run = st.button(
+        "🚀 Run Extraction",
+        use_container_width=True,
+        key="run_extraction"
+    )
+
+    status_box = st.empty()
+    progress_bar = st.progress(0.0)
 with left:
     document_type = st.selectbox(
         "📑 Document Type",
@@ -497,6 +527,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
