@@ -401,10 +401,7 @@ with left:
         )
         prompt_text = prompt_file.read().decode() if prompt_file else None
     prompt = prompt_text
-    if run:
-        if not all([pdf_file, service_account_file, prompt_text]):
-            st.error("Upload PDF, Service Account JSON, and ensure a Prompt is loaded")
-            st.stop()
+
     status_box = st.empty()
     progress_bar = st.progress(0.0)
 with left:
@@ -423,10 +420,9 @@ with right:
 # ACTION
 # =========================================================
 if run:
-    if not all([pdf_file, prompt_file, service_account_file]):
-        st.error("Upload PDF, Prompt, and Service Account JSON")
+    if not all([pdf_file, service_account_file, prompt_text]):
+        st.error("Upload PDF, Service Account JSON, and ensure a Prompt is loaded")
         st.stop()
-
     with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as sa_tmp:
         sa_tmp.write(service_account_file.getvalue())
         sa_path = sa_tmp.name
@@ -501,6 +497,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
