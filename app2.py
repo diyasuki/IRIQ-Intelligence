@@ -13,7 +13,14 @@ import time
 from google.oauth2 import service_account
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part, GenerationConfig
+import requests
 
+GITHUB_PROMPT_MAP = {
+    "Invoice": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/invoice.txt",
+    "Purchase Order": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/purchase_order.txt",
+    "Receipt": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/receipt.txt",
+    "Bank Statement": "https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/prompts/bank_statement.txt",
+}
 # =========================================================
 # CONFIG
 # =========================================================
@@ -37,7 +44,18 @@ def get_project_id_from_sa(uploaded_file):
     sa = json.loads(uploaded_file.getvalue().decode("utf-8"))
     return sa.get("project_id")
 
+def load_prompt_from_github(document_type: str) -> str | None:
+    url = GITHUB_PROMPT_MAP.get(document_type)
+    if not url:
+        return None
 
+    try:
+        r = requests.get(url, timeout=10)
+        r.raise_for_status()
+        return r.text
+    except Exception as e:
+        st.warning(f"⚠️ Unable to load prompt from GitHub for {document_type}")
+        return None
 def safe_json_loads(text: str):
     text = re.sub(r"```json|```", "", text).strip()
 
@@ -368,8 +386,25 @@ with left:
     )
 
     pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
-    prompt_file = st.file_uploader("Upload Prompt (.txt)", type=["txt"])
-    run = st.button("🚀 Run Extraction", use_container_width=True)
+    
+    # Try auto-loading prompt
+    auto_prompt = load_prompt_from_github(document_type)
+
+    if auto_prompt:
+        st.success(f"✅ Prompt auto-loaded for {document_type}")
+        prompt_text = auto_prompt
+        prompt_file = None
+    else:
+        prompt_file = st.file_uploader(
+            "Upload Prompt (.txt) – fallback",
+            type=["txt"]
+        )
+        prompt_text = prompt_file.read().decode() if prompt_file else None
+    prompt = prompt_text
+    if run:
+        if not all([pdf_file, service_account_file, prompt_text]):
+            st.error("Upload PDF, Service Account JSON, and ensure a Prompt is loaded")
+            st.stop()
     status_box = st.empty()
     progress_bar = st.progress(0.0)
 with left:
@@ -466,4 +501,5 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
