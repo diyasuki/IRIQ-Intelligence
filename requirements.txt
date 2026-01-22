@@ -1,0 +1,17 @@
+streamlit
+google-cloud-aiplatform
+google-auth
+pymupdf
+
+
+
+
+
+
+
+
+
+
+
+
+
