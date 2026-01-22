@@ -500,12 +500,7 @@ st.markdown("---")
 
 st.markdown(
     """
-    <div style="
-        text-align:center;
-        font-size:13px;
-        color:#dddddd;
-        padding-bottom:12px;
-    ">
+    <div style="text-align:center; font-size:13px; color:#dddddd;">
         <b>Demo Version</b><br>
         This application is for demonstration and evaluation purposes only.<br><br>
 
@@ -518,6 +513,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
-
