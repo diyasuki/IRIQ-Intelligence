@@ -272,8 +272,86 @@ def transactions_to_csv(data: dict) -> str:
 # STREAMLIT UI
 # =========================================================
 st.set_page_config(page_title="Async Gemini Bank Statement Extractor", layout="wide")
-st.title("📄 Async Gemini Bank Statement Extractor")
+st.markdown(
+    """
+    <style>
+        /* App background */
+        .stApp {
+            background-color: #2b124c;
+            color: white;
+        }
 
+        /* Sidebar background */
+        section[data-testid="stSidebar"] {
+            background-color: #1f0b38;
+        }
+
+        /* Text color */
+        h1, h2, h3, h4, h5, h6, p, label, span, div {
+            color: white !important;
+        }
+
+        /* Buttons */
+        .stButton > button {
+            background-color: #7ec8ff;
+            color: #000000;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+        }
+
+        .stButton > button:hover {
+            background-color: #5bb6ff;
+            color: #000000;
+        }
+
+        /* File uploader */
+        div[data-testid="stFileUploader"] {
+            background-color: #3a1b66;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* Selectbox */
+        div[data-testid="stSelectbox"] {
+            background-color: #3a1b66;
+            border-radius: 8px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div style="text-align:center; padding: 10px 0;">
+        <h1 style="color:#ffffff; margin-bottom:5px;">
+            IRIQ Intelligence
+        </h1>
+        <h4 style="color:#9fd3ff; font-weight:400;">
+            Intelligent Document Processing & AI Extraction Platform
+        </h4>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div style="
+        text-align:center;
+        padding:12px;
+        margin-bottom:15px;
+        border-radius:10px;
+        background: linear-gradient(135deg, #3a1b66, #2b124c);
+        border: 1px solid #7ec8ff;
+    ">
+        <h3 style="margin:0; color:#ffffff;">IRIQ Intelligence</h3>
+        <span style="font-size:12px; color:#b9ddff;">
+            AI Document Automation
+        </span>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 with st.sidebar:
     service_account_file = st.file_uploader("Service Account JSON", type=["json"])
     project_id = get_project_id_from_sa(service_account_file) if service_account_file else None
@@ -283,7 +361,17 @@ with st.sidebar:
     location = st.selectbox("Vertex AI Location", VERTEX_LOCATIONS)
 
 left, right = st.columns([1, 1.4])
+with left:
+    document_type = st.selectbox(
+        "📑 Document Type",
+        ["Invoice", "Purchase Order", "Receipt", "Bank Statement"]
+    )
 
+    pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
+    prompt_file = st.file_uploader("Upload Prompt (.txt)", type=["txt"])
+    run = st.button("🚀 Run Extraction", use_container_width=True)
+    status_box = st.empty()
+    progress_bar = st.progress(0.0)
 with left:
     pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
     prompt_file = st.file_uploader("Upload Prompt (.txt)", type=["txt"])
@@ -353,3 +441,29 @@ if st.session_state.extracted_json:
         "transactions.csv",
         mime="text/csv"
     )
+    st.markdown("---")
+
+st.markdown(
+    """
+    <div style="
+        text-align:center;
+        font-size:14px;
+        color:#dddddd;
+        padding-bottom:10px;
+    ">
+        <b style="color:#ffffff;">IRIQ Intelligence</b><br>
+        Intelligent Document Processing • OCR • AI Automation<br><br>
+
+        <b>Demo Version</b><br>
+        This application is for demonstration and evaluation purposes only.<br><br>
+
+        <b>Licensing & Commercial Use</b><br>
+        For licensing, customization, or enterprise deployment, contact:<br>
+        📧 <a href="mailto:Kranthi.c85@gmail.com" style="color:#7ec8ff;">
+            Kranthi.c85@gmail.com
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
