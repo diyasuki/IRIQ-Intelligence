@@ -415,8 +415,6 @@ with left:
         ["Invoice", "Purchase Order", "Receipt", "Bank Statement"]
     )
 
-    pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
-    
     # Try auto-loading prompt
     auto_prompt = load_prompt_from_github(document_type)
 
@@ -527,6 +525,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
