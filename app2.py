@@ -536,41 +536,31 @@ st.markdown("---")
 st.markdown(
     """
     <div style="
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 18px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.06);
-        text-align: center;
-        font-size: 14px;
-        color: #e0e0e0;
+        text-align:center;
+        padding:12px;
+        margin-bottom:15px;
+        border-radius:10px;
+        background: linear-gradient(135deg, #3a1b66, #2b124c);
+        border: 1px solid #7ec8ff;
     ">
-        <div style="font-size:16px; font-weight:600; margin-bottom:6px;">
-            Demo Version
-        </div>
-
-        <div style="margin-bottom:14px;">
-            This application is for demonstration and evaluation purposes only.
-        </div>
-
-        <div style="font-weight:600; margin-bottom:4px;">
+        <h3 style="margin:0; color:#ffffff;">This application is for demonstration and evaluation purposes only</h3>
+        <span style="font-size:12px; color:#b9ddff;">
             Licensing & Commercial Use
-        </div>
-
-        <div style="margin-bottom:6px;">
+        </span>
+        <span style="font-size:12px; color:#b9ddff;">
             For licensing, customization, or enterprise deployment, contact:
-        </div>
-
-        <div>
-            📧 <a href="mailto:Kranthi.c85@gmail.com"
+        </span>
+        <span style="font-size:12px; color:#b9ddff;">
+            <a href="mailto:Kranthi.c85@gmail.com"
                  style="color:#7ec8ff; text-decoration:none; font-weight:500;">
                 Kranthi.c85@gmail.com
             </a>
-        </div>
+        </span>
     </div>
     """,
     unsafe_allow_html=True
 )
+
 
 
 
