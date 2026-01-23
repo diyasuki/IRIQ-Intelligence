@@ -367,6 +367,17 @@ st.markdown(
 st.markdown(
     """
     <style>
+        div[data-testid="stMarkdownContainer"] label,
+        div[data-testid="stSelectbox"] label {
+            color:#ffffff !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <style>
         /* ================================
            File Uploader – White Text
         ================================= */
@@ -659,6 +670,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
