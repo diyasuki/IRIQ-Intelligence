@@ -372,7 +372,7 @@ st.markdown(
 
         /* Main uploader text */
         div[data-testid="stFileUploader"] * {
-            color: #000000 !important;
+            color: #ffffff !important;
         }
 
         /* "Drag and drop file here" text */
@@ -655,6 +655,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
