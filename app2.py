@@ -367,7 +367,11 @@ st.markdown(
 st.markdown(
     """
     <style>
-        div[data-testid="stMarkdownContainer"] label,
+        div[data-testid="stFileUploader"] label,
+        div[data-testid="stSelectbox"] label {
+            color:#ffffff !important;
+        }
+        div[data-testid="stSidebar"] label,
         div[data-testid="stSelectbox"] label {
             color:#ffffff !important;
         }
@@ -670,6 +674,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
