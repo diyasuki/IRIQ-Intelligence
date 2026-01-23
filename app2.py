@@ -409,32 +409,38 @@ with left:
 
     status_box = st.empty()
     progress_bar = st.progress(0.0)
+with left: document_type = st. selectbox( "📑 Document Type", ["Invoice", "Purchase Order", "Receipt", "Bank Statement", "Others"] ) auto_prompt = None prompt = None if document_type ZjQcmQRYFpfptBannerStart External Email - Think Before You Click 
+ 
+ZjQcmQRYFpfptBannerEnd
 with left:
     document_type = st.selectbox(
         "📑 Document Type",
-        ["Invoice", "Purchase Order", "Receipt", "Bank Statement","Others"]
+        ["Invoice", "Purchase Order", "Receipt", "Bank Statement", "Others"]
     )
 
-    # Try auto-loading prompt
+    auto_prompt = None
+    prompt = None
+
     if document_type == "Others":
         if not prompt_file:
             st.error("For 'Others', uploading a prompt text file is mandatory.")
             st.stop()
-        prompt=prompt_file.getvalue().decode("utf-8")
+
+        prompt = prompt_file.getvalue().decode("utf-8")
+
     else:
         auto_prompt = load_prompt_from_github(document_type)
 
-    if auto_prompt:
-        st.success(f"✅ Prompt auto-loaded for {document_type}")
-        prompt_text = auto_prompt
-        prompt_file = None
-    else:
-        prompt_file = st.file_uploader(
-            "Upload Prompt (.txt) – fallback",
-            type=["txt"]
-        )
-        prompt_text = prompt_file.read().decode() if prompt_file else None
-    prompt = prompt_text
+        if auto_prompt:
+            st.success(f"✅ Prompt auto-loaded for {document_type}")
+            prompt = auto_prompt
+        else:
+            st.warning("⚠️ Auto prompt not available. Please upload a prompt file.")
+
+            if not prompt_file:
+                st.stop()
+
+            prompt = prompt_file.getvalue().decode("utf-8")
 
     status_box = st.empty()
     progress_bar = st.progress(0.0)
@@ -542,4 +548,5 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
