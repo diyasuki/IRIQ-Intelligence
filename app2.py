@@ -412,11 +412,17 @@ with left:
 with left:
     document_type = st.selectbox(
         "📑 Document Type",
-        ["Invoice", "Purchase Order", "Receipt", "Bank Statement"]
+        ["Invoice", "Purchase Order", "Receipt", "Bank Statement","Others"]
     )
 
     # Try auto-loading prompt
-    auto_prompt = load_prompt_from_github(document_type)
+    if document_type == "Others":
+        if not prompt_file:
+            st.error("For 'Others', uploading a prompt text file is mandatory.")
+            st.stop()
+        prompt=prompt_file.getvalue().decode("utf-8")
+    else:
+        auto_prompt = load_prompt_from_github(document_type)
 
     if auto_prompt:
         st.success(f"✅ Prompt auto-loaded for {document_type}")
@@ -536,3 +542,4 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
