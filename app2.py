@@ -460,8 +460,7 @@ if run:
         with open(pdf_path, "wb") as f:
             f.write(pdf_file.read())
 
-        prompt = prompt_file.read().decode()
-
+        
         st.session_state.extracted_json = asyncio.run(
             extract_parallel_pages_streaming_async(
                 pdf_path,
@@ -495,6 +494,7 @@ if st.session_state.extracted_json:
         "transactions.csv",
         mime="text/csv"
     )
+
 
 st.markdown("---")
 
