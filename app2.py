@@ -345,6 +345,10 @@ st.markdown(
             border-radius: 10px;
             padding: 10px;
         }
+        div[data-testid="stSelectbox"] label {
+            color: #ffffff !important;
+            font-weight: 500;
+        }
 
         /* Buttons */
         .stButton > button {
@@ -655,6 +659,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
