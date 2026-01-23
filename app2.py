@@ -14,7 +14,24 @@ from google.oauth2 import service_account
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part, GenerationConfig
 import requests
+import base64
 
+with st.sidebar:
+    logo_sidebar = base64.b64encode(
+        open("assets/iriq_intelligence_logo.png", "rb").read()
+    ).decode()
+
+    st.markdown(
+        f"""
+        <div style="text-align:center; margin-bottom:15px;">
+            <img src="data:image/png;base64,{logo_sidebar}" width="110"/>
+            <div style="font-size:12px; color:#b9ddff; margin-top:6px;">
+                IRIQ Intelligence
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 GITHUB_PROMPT_MAP = {
     "Invoice": "https://github.com/diyasuki/IRIQ-Intelligence/blob/main/Invoice.txt",
     "Purchase Order": "https://github.com/diyasuki/IRIQ-Intelligence/blob/main/PurchaseOrder.txt",
@@ -341,15 +358,23 @@ st.markdown(
 
 st.markdown(
     """
-    <div style="text-align:center; padding: 10px 0;">
-        <h1 style="color:#ffffff; margin-bottom:5px;">
+    <div style="text-align:center; padding: 10px 0 5px 0;">
+        <img src="data:image/png;base64,{logo}" width="180"/>
+        <h2 style="color:#ffffff; margin:10px 0 2px 0;">
             IRIQ Intelligence
-        </h1>
-        <h4 style="color:#9fd3ff; font-weight:400;">
+        </h2>
+        <div style="color:#9fd3ff; font-size:15px;">
             Intelligent Document Processing & AI Extraction Platform
-        </h4>
+        </div>
+        <div style="color:#7ec8ff; font-size:13px; margin-top:4px;">
+            Powered by <b>IRIQ Intelligence</b>
+        </div>
     </div>
-    """,
+    """.format(
+        logo=base64.b64encode(
+            open("assets/iriq_intelligence_logo.png", "rb").read()
+        ).decode()
+    ),
     unsafe_allow_html=True
 )
 st.markdown(
@@ -546,6 +571,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
