@@ -358,17 +358,18 @@ st.markdown(
 
 st.markdown(
     """
-    <div style="text-align:center; padding: 10px 0 5px 0;">
-        <img src="data:image/png;base64,{logo}" width="180"/>
-        <h2 style="color:#ffffff; margin:10px 0 2px 0;">
-            IRIQ Intelligence
-        </h2>
-        <div style="color:#9fd3ff; font-size:15px;">
-            Intelligent Document Processing & AI Extraction Platform
-        </div>
-        <div style="color:#7ec8ff; font-size:13px; margin-top:4px;">
-            Powered by <b>IRIQ Intelligence</b>
-        </div>
+    <div style="
+        text-align:center;
+        padding:12px;
+        margin-bottom:15px;
+        border-radius:10px;
+        background: linear-gradient(135deg, #3a1b66, #2b124c);
+        border: 1px solid #7ec8ff;
+    ">
+        <h3 style="margin:0; color:#ffffff;">IRIQ Intelligence</h3>
+        <span style="font-size:12px; color:#b9ddff;">
+            AI Document Automation
+        </span>
     </div>
     """.format(
         logo=base64.b64encode(
@@ -571,6 +572,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
