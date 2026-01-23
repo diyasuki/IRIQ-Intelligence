@@ -345,10 +345,7 @@ st.markdown(
             border-radius: 10px;
             padding: 10px;
         }
-        div[data-testid="stSelectbox"] label {
-            color: #ffffff !important;
-            font-weight: 500;
-        }
+        
 
         /* Buttons */
         .stButton > button {
@@ -384,6 +381,9 @@ st.markdown(
             color: #000000 !important;
         }
 
+        div[data-testid="stSelectbox"] label {
+            color: #ffffff !important;
+        }
         /* Uploaded filename */
         div[data-testid="stFileUploader"] small {
             color: #000000 !important;
@@ -659,6 +659,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
