@@ -409,9 +409,7 @@ with left:
 
     status_box = st.empty()
     progress_bar = st.progress(0.0)
-with left: document_type = st. selectbox( "📑 Document Type", ["Invoice", "Purchase Order", "Receipt", "Bank Statement", "Others"] ) auto_prompt = None prompt = None if document_type ZjQcmQRYFpfptBannerStart External Email - Think Before You Click 
- 
-ZjQcmQRYFpfptBannerEnd
+
 with left:
     document_type = st.selectbox(
         "📑 Document Type",
@@ -548,5 +546,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
