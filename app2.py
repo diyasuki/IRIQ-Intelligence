@@ -363,6 +363,44 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+st.markdown(
+    """
+    <style>
+        /* ================================
+           File Uploader – White Text
+        ================================= */
+
+        /* Main uploader text */
+        div[data-testid="stFileUploader"] * {
+            color: #ffffff !important;
+        }
+
+        /* "Drag and drop file here" text */
+        div[data-testid="stFileUploader"] span {
+            color: #ffffff !important;
+        }
+
+        /* Uploaded filename */
+        div[data-testid="stFileUploader"] small {
+            color: #ffffff !important;
+        }
+
+        /* Browse files button text */
+        div[data-testid="stFileUploader"] button {
+            color: #000000 !important;   /* keep readable on blue button */
+            font-weight: 600;
+        }
+
+        /* Border */
+        div[data-testid="stFileUploader"] {
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.markdown(
     """
@@ -617,6 +655,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
