@@ -493,9 +493,9 @@ if st.session_state.extracted_json:
 
     dl_json.download_button(
         "⬇️ Download JSON",
-        json.dumps(st.session_state.extracted_json, indent=2),
+        json.dumps(st.session_state.extracted_json, indent=2,ensure_ascii = False),
         "output.json",
-        mime="application/json"
+        mime="application/json; charset=utf-8"
     )
 
     dl_csv.download_button(
@@ -546,6 +546,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
