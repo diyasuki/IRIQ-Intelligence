@@ -453,7 +453,7 @@ with right:
 # ACTION
 # =========================================================
 if run:
-    if not all([pdf_file, service_account_file, prompt_text]):
+    if not all([pdf_file, service_account_file, prompt]):
         st.error("Upload PDF, Service Account JSON, and ensure a Prompt is loaded")
         st.stop()
     with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as sa_tmp:
@@ -546,6 +546,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
