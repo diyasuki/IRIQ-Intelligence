@@ -311,6 +311,63 @@ st.markdown(
     """
     <style>
         /* ================================
+           IRIQ Intelligence – Logo Background
+        ================================= */
+
+        .stApp {
+            background: radial-gradient(
+                circle at top,
+                #0f243d 0%,
+                #0b1a2a 45%,
+                #070f1a 100%
+            );
+            color: #ffffff;
+        }
+
+        /* Sidebar background */
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(
+                180deg,
+                #0b1a2a 0%,
+                #070f1a 100%
+            );
+        }
+
+        /* Cards / containers */
+        div[data-testid="stVerticalBlock"] > div {
+            background: transparent;
+        }
+
+        /* File uploader & selectbox containers */
+        div[data-testid="stFileUploader"],
+        div[data-testid="stSelectbox"] {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        /* Buttons */
+        .stButton > button {
+            background-color: #7ec8ff;
+            color: #000000;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .stButton > button:hover {
+            background-color: #5bb6ff;
+            color: #000000;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <style>
+        /* ================================
            BUTTON TEXT → BLACK
         ================================= */
         .stButton > button {
@@ -560,6 +617,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
