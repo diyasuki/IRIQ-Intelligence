@@ -381,7 +381,7 @@ st.markdown(
             color: #000000 !important;
         }
 
-        div[data-testid="stSelectbox"] label {
+        div[data-testid="stSelectbox"] > label {
             color: #000000 !important;
         }
         /* Uploaded filename */
@@ -659,6 +659,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
